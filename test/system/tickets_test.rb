@@ -14,11 +14,11 @@ class TicketsTest < ApplicationSystemTestCase
     visit tickets_url
     click_on "New Ticket"
 
-    fill_in "Completed at", with: @ticket.completed_at
+    fill_in "Closed", with: @ticket.closed
     fill_in "Desc", with: @ticket.desc
     fill_in "Notes", with: @ticket.notes
-    fill_in "Request at", with: @ticket.request_at
-    fill_in "Tech", with: @ticket.tech
+    fill_in "Opened", with: @ticket.opened
+    fill_in "Assigned Technician", with: @ticket.assigned_technician
     click_on "Create Ticket"
 
     assert_text "Ticket was successfully created"
@@ -29,11 +29,11 @@ class TicketsTest < ApplicationSystemTestCase
     visit tickets_url
     click_on "Edit", match: :first
 
-    fill_in "Completed at", with: @ticket.completed_at
+    fill_in "Closed", with: @ticket.closed
     fill_in "Desc", with: @ticket.desc
     fill_in "Notes", with: @ticket.notes
-    fill_in "Request at", with: @ticket.request_at
-    fill_in "Tech", with: @ticket.tech
+    fill_in "Opened", with: @ticket.opened
+    fill_in "Assigned Technician", with: @ticket.assigned_technician
     click_on "Update Ticket"
 
     assert_text "Ticket was successfully updated"

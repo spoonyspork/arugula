@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_220123) do
+ActiveRecord::Schema.define(version: 2020_12_02_023928) do
 
   create_table "tickets", force: :cascade do |t|
-    t.date "request_at"
+    t.date "opened"
     t.text "desc"
-    t.string "tech"
-    t.date "completed_at"
+    t.string "assigned_technician"
+    t.date "closed"
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

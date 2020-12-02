@@ -4,7 +4,16 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    @tickets=Ticket.all
+    case params[:state]
+    when "open"
+      @tickets=@tickets.where(closed: nil)
+    when "closed"
+      @tickets=@tickets.where.not(closed: nil)
+    end
+    if params.has_key? :assigned_technician
+     @tickets=@tickets.where(assigned_technician: params[:assigned_technician])
+    end
   end
 
   # GET /tickets/1
@@ -69,6 +78,6 @@ class TicketsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticket_params
-      params.require(:ticket).permit(:request_at, :desc, :tech, :completed_at, :notes)
+      params.require(:ticket).permit(:opened, :desc, :assigned_technician, :closed, :notes)
     end
 end

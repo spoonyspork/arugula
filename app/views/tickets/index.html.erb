@@ -1,15 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tickets</h1>
+<% 
+all_active= if !params.has_key? :state and !params.has_key? :assigned_technician 
+"active" else "" end 
+all_closed_active= if params[:state] == "closed" and !params.has_key? :assigned_technician 
+"active" else "" end 
+all_open_active= if params[:state] == "open" and !params.has_key? :assigned_technician 
+"active" else "" end 
+%>
 
-<table>
+<h1>Tickets</h1>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "All", tickets_path, class:"nav-link " + all_active %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "All Closed", tickets_path(state: "closed"), class:"nav-link " + all_closed_active %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "All Open", tickets_path(state: "open"), class:"nav-link " + all_open_active %>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Request at</th>
-      <th>Desc</th>
-      <th>Tech</th>
-      <th>Completed at</th>
-      <th>Notes</th>
+      <th scope="col">Opened</th>
+      <th scope="col">Desc</th>
+      <th scope="col">Assigned Technician</th>
+      <th scope="col">Closed</th>
+      <th scope="col">Notes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,10 +39,10 @@
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.request_at %></td>
+        <td><%= ticket.opened %></td>
         <td><%= ticket.desc %></td>
-        <td><%= ticket.tech %></td>
-        <td><%= ticket.completed_at %></td>
+        <td><%= link_to ticket.assigned_technician, tickets_path(assigned_technician: ticket.assigned_technician)%></td>
+        <td><%= ticket.closed %></td>
         <td><%= ticket.notes %></td>
         <td><%= link_to 'Show', ticket %></td>
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
@@ -32,4 +54,7 @@
 
 <br>
 
-<%= link_to 'New Ticket', new_ticket_path %>
+<%= link_to 'New Ticket', new_ticket_path, class:"btn btn-dark", role:"button" %>
+<%= link_to 'All', tickets_path ,class:"btn btn-dark", role:"button"%>
+<%= link_to 'Completed', tickets_path(complete:1) ,class:"btn btn-dark", role:"button" %>
+<%= link_to 'Not Complete', tickets_path(not_complete:1) ,class:"btn btn-dark", role:"button" %>

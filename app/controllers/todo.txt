@@ -1,0 +1,13 @@
+TODO:
+Create a program to keep track of open service requests. Data that should be tracked include, date of requested, description of request, technician assigned, date of completion and notes.
+
+ Create a report that will produce a list of open requests by technician.
+
+ Handle report tab (mark disabled when no assigned_technician picked)
+ In assigned_technician report tab, have button to generate open and closed tickets for that assigned_technician
+ Rename 'completed at' to 'Closed'
+ Rename 'Requested at' to 'Opened'
+ Reame 'assigned_technician' to 'Assigned Technician'
+ Remove buttons from bottom of page (replaced by tabs) - 'New Ticket' button to remain
+ Make landing page be all tickets
+ Note: Not implimenting auth

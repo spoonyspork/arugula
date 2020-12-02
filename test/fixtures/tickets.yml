@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  request_at: 2020-11-14
+  opened: 2020-11-14
   desc: MyText
-  tech: MyString
-  completed_at: 2020-11-14
+  assigned_technician: MyString
+  closed: 2020-11-14
   notes: MyText
 
 two:
-  request_at: 2020-11-14
+  opened: 2020-11-14
   desc: MyText
-  tech: MyString
-  completed_at: 2020-11-14
+  assigned_technician: MyString
+  closed: 2020-11-14
   notes: MyText
