@@ -1,7 +1,7 @@
 {
-  "name": "Node.js Sample",
-  "description": "A barebones Node.js app using Express",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "https://node-js-sample.herokuapp.com/node.png",
-  "keywords": ["node", "express", "static"]
+  "name": "Arugula",
+  "description": "A barebones ticket tracking system",
+  "repository": "https://github.com/spoonyspork/arugula",
+  "logo": "https://i.imgur.com/K8ZWJZy.jpg",
+  "keywords": ["ruby", "school", "static"]
 }
