@@ -14,5 +14,7 @@
  *= require_self
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+
+// importing bootstrap stuff to 'prettify' page style
 @import "bootstrap";
 @import "rails_bootstrap_forms";

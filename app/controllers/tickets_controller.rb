@@ -3,8 +3,14 @@ class TicketsController < ApplicationController
 
   # GET /tickets
   # GET /tickets.json
+
+  # filtering based on different criterea
   def index
+
+    # default: show all
     @tickets=Ticket.all
+
+    # cases for showing open tockets, closed tickets, and per technician
     case params[:state]
     when "open"
       @tickets=@tickets.where(closed: nil)
